@@ -10,9 +10,9 @@
   "devDependencies": {
     "@types/node": "^20.4.1",
     "eslint": "^8.44.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "prettier": "^3.0.0",
-    "prettier-config": "workspace:*",
+    "prettier-config": "*",
     "turbo": "^1.10.7"
   },
   "packageManager": "pnpm@8.6.6",
@@ -21,6 +21,9 @@
     "packages/*",
     "contracts/*"
   ],
+  "resolutions": {
+    "@types/react": "^18.2.6"
+  },
   "dependencies": {
     "eosio-core": "^0.0.2",
     "next-auth": "^4.22.1"

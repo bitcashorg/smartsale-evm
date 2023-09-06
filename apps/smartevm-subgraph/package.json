@@ -12,6 +12,7 @@
     "prepare:avalanche": "mustache config/avalanche.json subgraph.template.yaml > subgraph.yaml",
     "prepare:fuji": "mustache config/fuji.json subgraph.template.yaml > subgraph.yaml",
     "prepare:bsc": "mustache config/bsc.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:bsc-testnet": "mustache config/bsc-testnet.json subgraph.template.yaml > subgraph.yaml",
     "prepare:eosevm-testnet": "mustache config/eosevm-testnet.json subgraph.template.yaml > subgraph.yaml",
     "deploy:gnosis-test": "yarn prepare:gnosis && graph deploy --product hosted-service aireshbhat/gnosisauction",
     "deploy:goerli-test": "yarn prepare:goerli && graph deploy --product hosted-service aireshbhat/gnosisauctiongoerli",
@@ -30,6 +31,7 @@
     "deploy:avalanche-prod": "yarn prepare:avalanche && graph deploy --product hosted-service gnosis-auction/ga-avax",
     "deploy:fuji-prod": "yarn prepare:fuji && graph deploy --product hosted-service gnosis-auction/ga-fuji",
     "deploy:bsc-prod": "yarn prepare:bsc && graph deploy --product hosted-service gnosis-auction/ga-bnb",
+    "deploy:bsc-testnet": "yarn prepare:bsc-testnet && graph deploy --product hosted-service andlerrl/ga-bnb-testnet",
     "deploy:hosted-prod": "yarn deploy:mainnet-prod && yarn deploy:goerli-prod && yarn deploy:polygon-prod && yarn deploy:gnosis-prod && yarn deploy:mumbai-prod && yarn deploy:avalanche-prod && yarn deploy:fuji-prod && yarn deploy:bsc-prod",
     "deploy:avalanche-studio": "yarn prepare:avalanche && graph deploy --node https://api.studio.thegraph.com/deploy/ ga-avalanche",
     "deploy:fuji-studio": "yarn prepare:fuji && graph deploy --node https://api.studio.thegraph.com/deploy/ ga-fuji",
@@ -50,8 +52,8 @@
     "mustache": "^4.2.0"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.48.0",
-    "@graphprotocol/graph-ts": "^0.29.3"
+    "@graphprotocol/graph-cli": "^0.57.0",
+    "@graphprotocol/graph-ts": "^0.31.0"
   },
   "version": "0.0.0"
 }
