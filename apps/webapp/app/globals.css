@@ -160,7 +160,7 @@ input[type='number'] {
 .newsletter-wrapper {
   @apply container flex flex-col items-center px-0 mx-auto rounded-3xl backdrop-blur-xl sm:text-center;
 
-  background: url('/images/newsletter-bg.png') center center no-repeat;
+  background: url('/images/newsletter-bg.webp') center center no-repeat;
   background-size: cover;
 }
 
@@ -267,10 +267,10 @@ input[type='number'] {
 }
 
 .mobile-nav {
-  height: calc(100% - 64px) !important;
+  height: calc(100vh - 64px) !important;
   width: 100vw;
   overflow: hidden;
-  @apply fixed inset-x-0 flex flex-col items-center gap-20 py-20 overflow-hidden top-16 justify-evenly bg-background;
+  @apply fixed inset-x-0 flex flex-col items-center overflow-hidden top-16 justify-evenly bg-background;
 }
 
 /* BLUR EFFECT TO BACKGROUND CIRCLE */
