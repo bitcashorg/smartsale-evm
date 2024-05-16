@@ -3,6 +3,7 @@
 import { useSession } from '@/hooks/use-session'
 import { appConfig } from '@/lib/config'
 import { useAccountModal, useConnectModal } from '@rainbow-me/rainbowkit'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { formatAddress } from 'smartsale-lib'
@@ -15,12 +16,13 @@ export function NavLinks({ mobile = false }: { mobile?: boolean }) {
   const { address } = useAccount()
   const router = useRouter()
   const bitcashAccount = session?.account
+  const t = useTranslations('header')
 
   const links = [
     {
       id: 'login',
       href: null,
-      text: bitcashAccount ? bitcashAccount : 'Login with Bitcash',
+      text: bitcashAccount ? bitcashAccount : t('login_with_bitcash'),
       mobile: true,
       action: bitcashAccount ? null : loginRedirect,
       disabled: false
@@ -28,7 +30,7 @@ export function NavLinks({ mobile = false }: { mobile?: boolean }) {
     {
       id: 'connect',
       href: null,
-      text: address ? formatAddress(address) : ' Connect your EVM Wallet',
+      text: address ? formatAddress(address) : t('connect_your_evm_wallet'),
       mobile: true,
       action: () =>
         bitcashAccount
@@ -39,7 +41,7 @@ export function NavLinks({ mobile = false }: { mobile?: boolean }) {
     {
       id: 'wallet',
       href: '/wallet',
-      text: 'Wallet',
+      text: t('wallet'),
       mobile: true,
       action: null,
       disabled: !appConfig.features.enableWalletAccess
@@ -47,7 +49,7 @@ export function NavLinks({ mobile = false }: { mobile?: boolean }) {
     {
       id: 'about',
       href: '/about',
-      text: 'About',
+      text: t('about'),
       mobile: false,
       action: null,
       disabled: false
@@ -55,7 +57,7 @@ export function NavLinks({ mobile = false }: { mobile?: boolean }) {
     {
       id: 'whitepaper',
       href: '/whitepaper',
-      text: 'Whitepaper',
+      text: t('whitepaper'),
       mobile: false,
       action: null,
       disabled: false
@@ -63,7 +65,7 @@ export function NavLinks({ mobile = false }: { mobile?: boolean }) {
     {
       id: 'security',
       href: '/security',
-      text: 'Security',
+      text: t('security'),
       mobile: false,
       action: null,
       disabled: false
@@ -72,7 +74,7 @@ export function NavLinks({ mobile = false }: { mobile?: boolean }) {
       id: 'logout',
       href: null,
       action: logout,
-      text: 'Sign out',
+      text: t('sign_out'),
       mobile: true,
       disabled: !bitcashAccount
     }

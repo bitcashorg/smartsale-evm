@@ -1,6 +1,14 @@
 import Link from 'next/link'
 import * as React from 'react'
-import { IconBitlauncher, IconDiscord } from '../ui/icons'
+import {
+  IconBitlauncher,
+  IconDiscord,
+  IconUSFlag,
+  IconESFlag,
+  IconCNFlag,
+  IconIDFlag,
+  IconVNFlag
+} from '../ui/icons'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { NavLinks } from './nav-links'
@@ -9,11 +17,24 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { SessionButtonLoader } from './session/session-button'
 import { MobileNavLoader } from './mobile-nav'
+import { useLocale, useTranslations } from 'next-intl'
+
+type LangList = {
+  [key: string]: { flag: React.ComponentType<any>; name: string }
+}
+
+export const langList: LangList = {
+  en: { flag: IconUSFlag, name: 'English' },
+  es: { flag: IconESFlag, name: 'Español' },
+  zh: { flag: IconCNFlag, name: '中文' },
+  id: { flag: IconIDFlag, name: 'bahasa Indonesia' },
+  vi: { flag: IconVNFlag, name: 'Tiếng Việt' }
+}
 
 export function Header() {
   return (
     <div className="sticky top-0 z-50 flex h-16 bg-background">
-      <div className="container flex flex-row items-center justify-between px-4 bg-background">
+      <div className="container flex flex-row items-center justify-between bg-background px-4">
         <div className="flex h-full items-center md:min-w-[300px]">
           <Link shallow href="/">
             <IconBitlauncher />
