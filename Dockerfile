@@ -7,8 +7,9 @@ WORKDIR /app
 # Install Bun
 RUN npm install -g bun
 
-# Install Python, zlib, and build-essential
-RUN apt-get update && apt-get install -y python3 zlib1g-dev build-essential
+# Install Python, zlib, build-essential, and other necessary packages
+RUN apt-get update && apt-get install -y python3 zlib1g-dev build-essential \
+    && apt-get install -y libssl-dev libffi-dev
 
 # Copy the package.json files for the workspaces
 COPY package.json .
