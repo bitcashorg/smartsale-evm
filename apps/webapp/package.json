@@ -74,7 +74,8 @@
     "wagmi": "latest",
     "zod": "^3.23.8",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "@repo/supabase": "workspace:*"
   },
   "devDependencies": {
     "@types/negotiator": "^0.6.3",
